@@ -1,0 +1,816 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Car API",
+        "description": "API was created for the project to car manage and their service requests. The endpoints scheduled below were implemented to create the application as part of the \"Tworzenie serwisów web 2.0\" course.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/cars": {
+            "get": {
+                "summary": "Retrieve all cars objects stored in database.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Car"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "post": {
+                "summary": "Create a new car instance.",
+                "parameters": [
+                    {
+                        "name": "car",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Car"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/cars/{id}": {
+            "get": {
+                "summary": "Retrieve a single car object by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the car object.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Car"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "put": {
+                "summary": "Update a car object by ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of car object to update.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "car",
+                        "in": "body",
+                        "description": "New car object to replace the old one.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Car"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "304": {
+                        "description": "Not Modified",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "tags": [
+                    "Cars"
+                ]
+            },
+            "delete": {
+                "summary": "Remove a car object by ID",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "description": "ID of the car object to remove",
+                        "schema": {
+                            "type": "string",
+                            "format": "ObjectId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "tags": [
+                    "Cars"
+                ]
+            }
+        },
+        "/subsidiaries": {
+            "get": {
+                "summary": "Get all subsidiaries",
+                "description": "Returns a list of all subsidiaries",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Subsidiary"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Subsidiaries"
+                ]
+            },
+            "post": {
+                "summary": "Create a new subsidiary",
+                "description": "Create a new subsidiary in the database",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Subsidiary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created a new subsidiary instance",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Created a new subsidiary instance: ID 6112ab5b5c5c5c5c5c5c5c5c."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to create a new subsidiary instance"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Subsidiaries"
+                ]
+            }
+        },
+        "/subsidiaries/{id}": {
+            "get": {
+                "summary": "Get a subsidiary by ID",
+                "description": "Returns a single subsidiary object identified by the given ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the subsidiary to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "objectid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Subsidiary object retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Subsidiary"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Failed to find the subsidiary object"
+                    }
+                },
+                "tags": [
+                    "Subsidiaries"
+                ]
+            },
+            "put": {
+                "summary": "Update a subsidiary by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID of the subsidiary to update",
+                        "schema": {
+                            "type": "string",
+                            "format": "objectId"
+                        }
+                    },
+                    {
+                        "name": "subsidiary",
+                        "in": "body",
+                        "description": "The subsidiary object to update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Subsidiary"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Subsidiary object updated successfully"
+                    },
+                    "304": {
+                        "description": "Failed to update the subsidiary object"
+                    },
+                    "404": {
+                        "description": "Failed to find the subsidiary object"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "tags": [
+                    "Subsidiaries"
+                ]
+            },
+            "delete": {
+                "summary": "Delete a subsidiary by ID",
+                "description": "Deletes a subsidiary in the database using the specified ID.",
+                "operationId": "deleteSubsidiary",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the subsidiary to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "objectId"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Subsidiary deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Removed the subsidiaries object: ID 12345"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed to remove the subsidiary object",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Failed to remove the subsidiary object: ID 12345"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Subsidiary not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Failed to find the subsidiary object: ID 12345"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Subsidiaries"
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "summary": "Registers a new user",
+                "description": "Registers a new user with the provided information",
+                "requestBody": {
+                    "description": "User information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "emailAddress": {
+                                        "type": "string"
+                                    },
+                                    "phoneNumber": {
+                                        "type": "number"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "firstName",
+                                    "lastName",
+                                    "emailAddress",
+                                    "phoneNumber",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User has been registered successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "user": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "User with given email address already exists",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "Logs a user in",
+                "requestBody": {
+                    "description": "User credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginCredentials"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User successfully logged in",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginResponse"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid credentials",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/session": {
+            "get": {
+                "summary": "Get user session information",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the user session information",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authorization token is required"
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/logout": {
+            "post": {
+                "summary": "Logout the currently logged in user.",
+                "responses": {
+                    "200": {
+                        "description": "User has been logged out successfully.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "User has been logged out successfully."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Refresh token missing or invalid."
+                    },
+                    "404": {
+                        "description": "Refresh token not found."
+                    },
+                    "500": {
+                        "description": "Server error."
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/change-password": {
+            "post": {
+                "summary": "Change user password",
+                "description": "Changes the user's password given the old password and new password. Requires a valid refresh token to be sent in the request cookies.",
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "oldPassword": {
+                                        "type": "string",
+                                        "description": "The user's old password."
+                                    },
+                                    "newPassword": {
+                                        "type": "string",
+                                        "description": "The user's new password."
+                                    }
+                                },
+                                "required": [
+                                    "oldPassword",
+                                    "newPassword"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The password has been changed successfully."
+                    },
+                    "401": {
+                        "description": "Unauthorized - the request does not contain a valid refresh token or user ID."
+                    },
+                    "404": {
+                        "description": "The user with the given ID does not exist."
+                    },
+                    "500": {
+                        "description": "Server error - an unexpected error occurred on the server."
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Car": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "format": "ObjectId"
+                },
+                "vin": {
+                    "type": "string"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "year_of_production": {
+                    "type": "integer"
+                },
+                "task_type": {
+                    "type": "string",
+                    "enum": [
+                        "Repairing",
+                        "Varnishing",
+                        "Cleaning"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Pending",
+                        "Servicing",
+                        "Finished"
+                    ]
+                }
+            },
+            "required": [
+                "vin",
+                "brand",
+                "model",
+                "year_of_production",
+                "task_type",
+                "description",
+                "status"
+            ]
+        },
+        "Subsidiary": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "format": "ObjectId"
+                },
+                "manager": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "type": "string"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Users"
+                    }
+                }
+            },
+            "required": [
+                "manager",
+                "address",
+                "phoneNumber",
+                "emailAddress"
+            ]
+        },
+        "Users": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "format": "ObjectId"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "emailAddress": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "integer"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "cars": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/components/schemas/Car"
+                    }
+                }
+            },
+            "required": [
+                "firstName",
+                "lastName",
+                "emailAddress",
+                "phoneNumber",
+                "password"
+            ]
+        }
+    }
+}
