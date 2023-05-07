@@ -693,55 +693,6 @@
         }
     },
     "definitions": {
-        "Car": {
-            "type": "object",
-            "properties": {
-                "_id": {
-                    "type": "string",
-                    "format": "ObjectId"
-                },
-                "vin": {
-                    "type": "string"
-                },
-                "brand": {
-                    "type": "string"
-                },
-                "model": {
-                    "type": "string"
-                },
-                "year_of_production": {
-                    "type": "integer"
-                },
-                "task_type": {
-                    "type": "string",
-                    "enum": [
-                        "Repairing",
-                        "Varnishing",
-                        "Cleaning"
-                    ]
-                },
-                "description": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string",
-                    "enum": [
-                        "Pending",
-                        "Servicing",
-                        "Finished"
-                    ]
-                }
-            },
-            "required": [
-                "vin",
-                "brand",
-                "model",
-                "year_of_production",
-                "task_type",
-                "description",
-                "status"
-            ]
-        },
         "Subsidiary": {
             "type": "object",
             "properties": {
@@ -800,7 +751,7 @@
                 "cars": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/components/schemas/Car"
+                        "$ref": "#/definitions/Car"
                     }
                 }
             },
@@ -810,6 +761,55 @@
                 "emailAddress",
                 "phoneNumber",
                 "password"
+            ]
+        },
+        "Car": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "string",
+                    "format": "ObjectId"
+                },
+                "vin": {
+                    "type": "string"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "year_of_production": {
+                    "type": "integer"
+                },
+                "task_type": {
+                    "type": "string",
+                    "enum": [
+                        "Repairing",
+                        "Varnishing",
+                        "Cleaning"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Pending",
+                        "Servicing",
+                        "Finished"
+                    ]
+                }
+            },
+            "required": [
+                "vin",
+                "brand",
+                "model",
+                "year_of_production",
+                "task_type",
+                "description",
+                "status"
             ]
         }
     }
