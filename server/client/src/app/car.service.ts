@@ -29,7 +29,6 @@ export class CarService {
   }
 
   createCar(car: Car): Observable<string> {
-    console.log('Car object:', car);
     return this.httpClient.post(`${this.url}/cars`, car, { responseType: 'text' });
   }
 

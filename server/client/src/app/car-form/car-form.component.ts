@@ -126,7 +126,7 @@ export class CarFormComponent implements OnInit {
 
   @Output()
   formSubmitted = new EventEmitter<Car>();
-  
+
   @Output()
   formCancelled = new EventEmitter<void>();
 
@@ -134,7 +134,7 @@ export class CarFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  get vin() {return this.carForm.get('vin')!; }
+  get vin() { return this.carForm.get('vin')!; }
   get brand() { return this.carForm.get('brand')!; }
   get model() { return this.carForm.get('model')!; }
   get year_of_production() { return this.carForm.get('year_of_production')!; }
@@ -151,7 +151,7 @@ export class CarFormComponent implements OnInit {
         year_of_production: [car.year_of_production, [Validators.required, Validators.min(1950), Validators.max(currentYear)]],
         task_type: [car.task_type],
         description: [car.description],
-        status: [car.status]
+        status: [car.status || 'Pending']
       });
     });
 

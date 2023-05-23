@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../car';
 import { CarService } from '../car.service';
- 
+
 @Component({
- selector: 'app-cars-list',
- template: `
+  selector: 'app-cars-list',
+  template: `
    <h2 class="text-center m-5" style="font-weight: lighter;">All registered cars</h2>
  
-   <table class="table table-striped table-bordered">
+   <table class="table table-bordered">
        <thead>
            <tr>
                <th>VIN</th>
@@ -23,7 +23,7 @@ import { CarService } from '../car.service';
        </thead>
  
        <tbody>
-           <tr *ngFor="let car of cars$ | async">
+           <tr *ngFor="let car of cars$ | async" [ngClass]="getStatusClass(car.status)">
                <td>{{car.vin}}</td>
                <td>{{car.brand}}</td>
                <td>{{car.model}}</td>
@@ -40,24 +40,50 @@ import { CarService } from '../car.service';
    </table>
  
    <button class="btn btn-primary mt-3" [routerLink]="['new']">Add a New Car</button>
+ `,
+ styles: [
+  `.form-pending {
+     background-color: #F7F7F7;
+   }
+   
+   .form-servicing {
+     background-color: #F2F9FF;
+   }
+   
+   .form-finished {
+     background-color: #F2FFF7;
+   }
  `
+ ]
 })
 export class CarsListComponent implements OnInit {
- cars$: Observable<Car[]> = new Observable();
- 
- constructor(private carsService: CarService) { }
- 
- ngOnInit(): void {
-   this.fetchCars();
- }
- 
- deleteCar(id: string): void {
-   this.carsService.deleteCar(id).subscribe({
-     next: () => this.fetchCars()
-   });
- }
- 
- private fetchCars(): void {
-   this.cars$ = this.carsService.getCars();
- }
+  cars$: Observable<Car[]> = new Observable();
+
+  constructor(private carsService: CarService) { }
+
+  ngOnInit(): void {
+    this.fetchCars();
+  }
+
+  deleteCar(id: string): void {
+    this.carsService.deleteCar(id).subscribe({
+      next: () => this.fetchCars()
+    });
+  }
+
+  private fetchCars(): void {
+    this.cars$ = this.carsService.getCars();
+  }
+
+  getStatusClass(status: string): string {
+    if (status === 'Pending') {
+      return 'form-pending';
+    } else if (status === 'Servicing') {
+      return 'form-servicing';
+    } else if (status === 'Finished') {
+      return 'form-finished';
+    }
+
+    return '';
+  }
 }
