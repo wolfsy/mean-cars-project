@@ -8,5 +8,5 @@ export interface Car {
     year_of_production: Number;
     task_type: "Repairing" | "Varnishing" | "Cleaning" | "Other";
     description: string;
-    status: "Pending" | "Servicing" | "Finished";
+    status: "Pending" | "Servicing" | "Finished" | "Postponed";
 }

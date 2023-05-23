@@ -799,7 +799,8 @@
                     "enum": [
                         "Pending",
                         "Servicing",
-                        "Finished"
+                        "Finished",
+                        "Postponed"
                     ]
                 }
             },

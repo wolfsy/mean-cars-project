@@ -41,9 +41,9 @@ import { CarService } from '../car.service';
  
    <button class="btn btn-primary mt-3" [routerLink]="['new']">Add a New Car</button>
  `,
- styles: [
-  `.form-pending {
-     background-color: #F7F7F7;
+  styles: [
+    `.form-pending {
+     background-color: #F8F8F8;
    }
    
    .form-servicing {
@@ -53,8 +53,12 @@ import { CarService } from '../car.service';
    .form-finished {
      background-color: #F2FFF7;
    }
+
+   .form-postponed {
+    background-color: #FFF2F2;
+   }
  `
- ]
+  ]
 })
 export class CarsListComponent implements OnInit {
   cars$: Observable<Car[]> = new Observable();
@@ -82,6 +86,8 @@ export class CarsListComponent implements OnInit {
       return 'form-servicing';
     } else if (status === 'Finished') {
       return 'form-finished';
+    } else if (status === 'Postponed') {
+      return 'form-postponed';
     }
 
     return '';

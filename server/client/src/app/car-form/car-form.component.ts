@@ -102,6 +102,10 @@ const currentYear = new Date().getFullYear();
           <input class="form-check-input" type="radio" formControlName="status" name="status" id="status-finished" value="Finished">
           <label class="form-check-label" for="status-finished">Finished</label>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="status" name="status" id="status-postponed" value="Postponed">
+          <label class="form-check-label" for="status-postponed">Postponed</label>
+        </div>
       </div>
  
       <button class="btn btn-primary" type="submit" [disabled]="carForm.invalid" style="margin-right: 5px;">Add</button>
