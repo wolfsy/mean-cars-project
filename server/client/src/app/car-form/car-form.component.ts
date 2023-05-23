@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { Car } from '../car';
 
+const currentYear = new Date().getFullYear();
+
 @Component({
   selector: 'app-car-form',
   template: `
@@ -55,8 +57,11 @@ import { Car } from '../car';
         <div *ngIf="year_of_production.errors?.['required']">
           Year of Production is required.
         </div>
-        <div *ngIf="year_of_production.errors?.['minlength']">
+        <div *ngIf="year_of_production.errors?.['min']">
           It is not possible to enter a vehicle that was manufactured before 1950.
+        </div>
+        <div *ngIf="year_of_production.errors?.['max']">
+          The provided year of production cannot be greater than the current year.
         </div>
       </div>
  
@@ -73,20 +78,15 @@ import { Car } from '../car';
           <input class="form-check-input" type="radio" formControlName="task_type" name="task_type" id="task_type-cleaning" value="Cleaning">
           <label class="form-check-label" for="task_type-cleaning">Cleaning</label>
         </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="task_type" name="task_type" id="task_type-other" value="Other">
+          <label class="form-check-label" for="task_type-other">Other</label>
+        </div>
       </div>
 
       <div class="form-floating mb-3">
-        <input class="form-control" type="text" formControlName="description" placeholder="Description" required>
+        <input class="form-control" type="text" formControlName="description" placeholder="Description">
         <label for="description">Description</label>
-      </div>
-
-      <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
-        <div *ngIf="description.errors?.['required']">
-          Description is required.
-        </div>
-        <div *ngIf="description.errors?.['minlength']">
-          Description must be at least 5 characters long. --edit
-        </div>
       </div>
 
       <div class="mb-3">
@@ -148,7 +148,7 @@ export class CarFormComponent implements OnInit {
         vin: [car.vin, [Validators.required, Validators.minLength(17), Validators.maxLength(17)]],
         brand: [car.brand, [Validators.required]],
         model: [car.model, [Validators.required]],
-        year_of_production: [car.year_of_production, [Validators.required]],
+        year_of_production: [car.year_of_production, [Validators.required, Validators.min(1950), Validators.max(currentYear)]],
         task_type: [car.task_type],
         description: [car.description],
         status: [car.status]

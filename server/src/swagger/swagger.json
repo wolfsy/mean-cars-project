@@ -787,7 +787,8 @@
                     "enum": [
                         "Repairing",
                         "Varnishing",
-                        "Cleaning"
+                        "Cleaning",
+                        "Other"
                     ]
                 },
                 "description": {
