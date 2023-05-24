@@ -1,0 +1,15 @@
+.form-pending {
+    background-color: #F8F8F8;
+}
+
+.form-servicing {
+    background-color: #F2F9FF;
+}
+
+.form-finished {
+    background-color: #F2FFF7;
+}
+
+.form-postponed {
+    background-color: #FFF2F2;
+}

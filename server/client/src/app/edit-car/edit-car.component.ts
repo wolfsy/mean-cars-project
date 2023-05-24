@@ -6,11 +6,9 @@ import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-edit-car.component.ts',
-  template: `
-    <h2 class="text-center m-5" style="font-weight: lighter;">Update vehicle details</h2>
-    <app-car-form [initialState]="car" (formSubmitted)="editCar($event)" (formCancelled)="handleCancel()"></app-car-form>
- `
+  templateUrl: './edit-car.component.html'
 })
+
 export class EditCarComponent implements OnInit {
   car: BehaviorSubject<Car> = new BehaviorSubject<Car>({} as Car);
 
