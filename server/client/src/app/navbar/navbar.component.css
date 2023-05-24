@@ -9,6 +9,13 @@
 
 .nav-link {
     color: white;
+    font-weight: lighter;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#navbarNav {
+    margin-right: 30px;
 }
 
 .nav-link:hover {
