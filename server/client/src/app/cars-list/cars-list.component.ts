@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Car } from '../car';
-import { CarService } from '../car.service';
+import { Car } from '../_model/car';
+import { CarService } from '../_service/car.service';
 
 @Component({
   selector: 'app-cars-list',

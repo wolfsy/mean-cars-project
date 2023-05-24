@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { Car } from '../car';
-import { CarService } from '../car.service';
+import { Car } from '../_model/car';
+import { CarService } from '../_service/car.service';
 
 @Component({
   selector: 'app-edit-car.component.ts',

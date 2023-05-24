@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-import { Car } from '../car';
+import { Car } from '../_model/car';
 
 const currentYear = new Date().getFullYear();
 

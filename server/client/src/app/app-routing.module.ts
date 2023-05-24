@@ -6,6 +6,9 @@ import { EditCarComponent } from './edit-car/edit-car.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'cars', pathMatch: 'full' },
+  // { path: '', component: HomeComponent },
+  // { path: 'about', component: AboutComponent },
+  // { path: 'contact', component: ContactComponent },
   { path: 'cars', component: CarsListComponent },
   { path: 'cars/new', component: AddCarComponent },
   { path: 'cars/edit/:id', component: EditCarComponent }

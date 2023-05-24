@@ -9,6 +9,7 @@ import { CarFormComponent } from './car-form/car-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddCarComponent } from './add-car/add-car.component';
 import { EditCarComponent } from './edit-car/edit-car.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EditCarComponent } from './edit-car/edit-car.component';
     CarsListComponent,
     CarFormComponent,
     AddCarComponent,
-    EditCarComponent
+    EditCarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
