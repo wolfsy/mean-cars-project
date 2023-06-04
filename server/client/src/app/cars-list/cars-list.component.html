@@ -22,7 +22,8 @@
             <td>{{car.task_type}}</td>
             <td>{{car.status}}</td>
             <td>
-                <button class="btn btn-secondary me-1" (click)="openDescriptionModal(car.description)">View Description</button>
+                <button class="btn btn-secondary me-1" [disabled]="!car.description"
+                    (click)="openDescriptionModal(car.description)">View Description</button>
                 <button class="btn btn-primary me-2" [routerLink]="['edit/', car._id]">Edit</button>
                 <button class="btn btn-danger" (click)="deleteCar(car._id ? car._id.toString() : '')">Delete</button>
             </td>

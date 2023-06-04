@@ -1,0 +1,16 @@
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin-top: -10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: -10px;
+}
+
+.modal-body {
+    padding: 10px 10px 10px 10px;
+}
