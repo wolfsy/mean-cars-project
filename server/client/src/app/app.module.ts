@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ContactComponent } from './contact/contact.component';
 import { QuestionAnswerComponent } from './question-answer/question-answer.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { DescriptionModalComponent } from './description-modal/description-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { QuestionAnswerComponent } from './question-answer/question-answer.compo
     NavbarComponent,
     FooterComponent,
     ContactComponent,
-    QuestionAnswerComponent
+    QuestionAnswerComponent,
+    DescriptionModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { QuestionAnswerComponent } from './question-answer/question-answer.compo
     HttpClientModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
