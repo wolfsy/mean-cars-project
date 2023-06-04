@@ -1,0 +1,17 @@
+.footer {
+    width: 100%;
+    background-color: #1A237E;
+    margin-top: 40px;
+    padding: 30px;
+    color: white;
+    font-weight: lighter;
+}
+
+.buttons {
+    scale: 1.2;
+}
+
+.buttons:hover {
+    color: #C8CDFF;
+    transition: 200ms;
+}
