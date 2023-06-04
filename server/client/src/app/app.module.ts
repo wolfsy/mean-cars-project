@@ -17,6 +17,8 @@ import { ContactComponent } from './contact/contact.component';
 import { QuestionAnswerComponent } from './question-answer/question-answer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DescriptionModalComponent } from './description-modal/description-modal.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DescriptionModalComponent } from './description-modal/description-modal
     FooterComponent,
     ContactComponent,
     QuestionAnswerComponent,
-    DescriptionModalComponent
+    DescriptionModalComponent,
+    UsersListComponent,
+    SubsidiariesListComponent
   ],
   imports: [
     BrowserModule,
