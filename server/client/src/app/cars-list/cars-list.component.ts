@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../_model/car';
 import { CarService } from '../_service/car.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { DescriptionModalComponent } from '../description-modal/description-modal.component';
 
 @Component({
   selector: 'app-cars-list',
@@ -11,8 +13,12 @@ import { CarService } from '../_service/car.service';
 
 export class CarsListComponent implements OnInit {
   cars$: Observable<Car[]> = new Observable();
+  modalRef?: BsModalRef;
 
-  constructor(private carsService: CarService) { }
+  constructor(
+    private carsService: CarService,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit(): void {
     this.fetchCars();
@@ -21,6 +27,14 @@ export class CarsListComponent implements OnInit {
   deleteCar(id: string): void {
     this.carsService.deleteCar(id).subscribe({
       next: () => this.fetchCars()
+    });
+  }
+
+  openDescriptionModal(description: string): void {
+    this.modalRef = this.modalService.show(DescriptionModalComponent, {
+      initialState: {
+        description: description
+      }
     });
   }
 
