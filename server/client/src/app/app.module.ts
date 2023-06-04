@@ -19,6 +19,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { DescriptionModalComponent } from './description-modal/description-modal.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list
     QuestionAnswerComponent,
     DescriptionModalComponent,
     UsersListComponent,
-    SubsidiariesListComponent
+    SubsidiariesListComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    CarouselModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+<div class="carousel-container">
+    <carousel (nextSlide)="nextSlide()" (prevSlide)="prevSlide()">
+        <slide *ngFor="let slide of slides; let i = index;" [@slideAnimation]="activeSlideIndex">
+            <img class="slide-image" [src]="slide.imageUrl" [alt]="slide.altText">
+            <div class="carousel-caption">
+                <h4>{{ slide.title }}</h4>
+                <p>{{ slide.description }}</p>
+            </div>
+            <div class="fog-overlay"></div>
+        </slide>
+    </carousel>
+</div>
+
+<app-subsidiaries-list></app-subsidiaries-list>

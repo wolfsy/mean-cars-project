@@ -1,15 +1,17 @@
-<h2 class="text-center m-5" style="font-weight: lighter;">Available subsidiaries</h2>
+<div class="subsidiaries">
+    <h2 class="text-left m-5" style="font-weight: lighter;">Available subsidiaries</h2>
 
-<div class="subsidiary-grid">
-    <div class="subsidiary" *ngFor="let subsidiary of subsidiaries$ | async">
-        <div class="manager">{{ subsidiary.manager }}</div>
-        <div class="address">{{ subsidiary.address }}</div>
-        <div class="phoneNumber">{{ subsidiary.phoneNumber }}</div>
-        <div class="emailAddress">{{ subsidiary.emailAddress }}</div>
-        <div class="actions">
-            <button class="btn btn-primary me-2" [routerLink]="['edit/', subsidiary._id]">Edit</button>
-            <button class="btn btn-danger"
-                (click)="deleteSubsidiary(subsidiary._id ? subsidiary._id.toString() : '')">Delete</button>
+    <div class="subsidiary-grid">
+        <div class="subsidiary" *ngFor="let subsidiary of subsidiaries$ | async">
+            <div class="manager"><strong>Manager: </strong>{{ subsidiary.manager }}</div>
+            <div class="address"><strong>Address: </strong>{{ subsidiary.address }}</div>
+            <div class="phoneNumber"><strong>Phone number: </strong>{{ subsidiary.phoneNumber }}</div>
+            <div class="emailAddress"><strong>E-mail Address: </strong>{{ subsidiary.emailAddress }}</div>
+            <div class="actions">
+                <button class="btn btn-primary me-2" [routerLink]="['edit/', subsidiary._id]">Edit</button>
+                <button class="btn btn-danger"
+                    (click)="deleteSubsidiary(subsidiary._id ? subsidiary._id.toString() : '')">Delete</button>
+            </div>
         </div>
     </div>
 </div>

@@ -1,4 +1,10 @@
+.subsidiaries {
+    border-top: 1px solid #1A237E;
+}
+
 .subsidiary-grid {
+    margin-left: 50px;
+    margin-right: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
@@ -6,14 +12,26 @@
 
 .subsidiary {
     border: 1px solid #ccc;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.subsidiary:hover {
+    background-color: #F6F6FE;
+    transition: 300ms;
 }
 
 .manager,
 .address,
 .phoneNumber,
 .emailAddress {
+    font-weight: lighter;
+    font-size: 18px;
     margin-bottom: 10px;
+}
+
+.manager {
+    color: #1A237E;
 }
 
 .actions {

@@ -6,17 +6,17 @@ import { EditCarComponent } from './edit-car/edit-car.component';
 import { ContactComponent } from './contact/contact.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'cars', pathMatch: 'full' },
-  // { path: '', component: HomeComponent },
-  // { path: 'about', component: AboutComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'subsidiaries', component: SubsidiariesListComponent},
   { path: 'users', component: UsersListComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cars', component: CarsListComponent },
   { path: 'cars/new', component: AddCarComponent },
-  { path: 'cars/edit/:id', component: EditCarComponent }
+  { path: 'cars/edit/:id', component: EditCarComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,0 +1,61 @@
+.carousel-container {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+.carousel-caption {
+    font-weight: lighter;
+}
+
+.slide-image {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    filter: brightness(0.6);
+    position: relative;
+}
+
+.fog-overlay::before,
+.fog-overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.fog-overlay::before {
+    left: 0;
+    width: 10%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    transition: opacity 1s ease;
+}
+
+.fog-overlay::after {
+    right: 0;
+    width: 10%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.4));
+    transition: opacity 1s ease;
+}
+
+.slide {
+    transition: transform 1s ease;
+}
+
+.slide.ng-leave {
+    transform: translateX(0%);
+}
+
+.slide.ng-leave.ng-leave-active {
+    transform: translateX(-100%);
+}
+
+.slide.ng-enter {
+    transform: translateX(100%);
+}
+
+.slide.ng-enter.ng-enter-active {
+    transform: translateX(0%);
+}
