@@ -1,6 +1,8 @@
 .questions {
     margin-top: -60px;
     border-top: 1px solid #1A237E;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1A237E;;
     width: 100%;
 }
 
@@ -20,6 +22,7 @@
     margin-left: 50px;
     margin-right: 50px;
     font-weight: lighter;
+    font-size: 18px;
 }
 
 .question:hover {
@@ -38,6 +41,7 @@
 
 .answer-text {
     font-weight: lighter;
+    font-size: 18px;
     color: #1A237E;
 }
 
