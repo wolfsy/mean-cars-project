@@ -1,0 +1,15 @@
+<div class="questions">
+    <h2 class="text-left m-5" style="font-weight: lighter;">Frequently asked questions</h2>
+    <div class="question-container">
+        <div *ngFor="let item of items">
+            <div class="question" (click)="toggleAnswer(item)">
+                {{ item.question }}
+                <i class="fa"
+                    [ngClass]="{'fa-chevron-down': item.showAnswer, 'fa-chevron-right': !item.showAnswer}"></i>
+            </div>
+            <div class="answer" *ngIf="item.showAnswer">
+                <span [innerHTML]="item.answer" class="answer-text"></span>
+            </div>
+        </div>
+    </div>
+</div>

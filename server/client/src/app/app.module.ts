@@ -13,6 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ContactComponent } from './contact/contact.component';
+import { QuestionAnswerComponent } from './question-answer/question-answer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatIconModule } from '@angular/material/icon';
     AddCarComponent,
     EditCarComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ContactComponent,
+    QuestionAnswerComponent
   ],
   imports: [
     BrowserModule,
