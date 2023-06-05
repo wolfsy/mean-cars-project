@@ -17,13 +17,13 @@ import { ContactComponent } from './contact/contact.component';
 import { QuestionAnswerComponent } from './question-answer/question-answer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DescriptionModalComponent } from './description-modal/description-modal.component';
-import { UsersListComponent } from './users-list/users-list.component';
 import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubsidiaryFormComponent } from './subsidiary-form/subsidiary-form.component';
 import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.component';
+import { RegistrationComponent } from './registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +37,11 @@ import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.compo
     ContactComponent,
     QuestionAnswerComponent,
     DescriptionModalComponent,
-    UsersListComponent,
     SubsidiariesListComponent,
     HomePageComponent,
     SubsidiaryFormComponent,
-    EditSubsidiaryComponent
+    EditSubsidiaryComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

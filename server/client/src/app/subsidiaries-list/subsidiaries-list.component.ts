@@ -11,19 +11,19 @@ import { Observable } from 'rxjs';
 
 export class SubsidiariesListComponent implements OnInit {
   subsidiaries$: Observable<Subsidiary[]> = new Observable();
- 
+
   constructor(private subsidiariesService: SubsidiaryService) { }
-  
+
   ngOnInit(): void {
     this.fetchSubsidiaries();
   }
-  
+
   deleteSubsidiary(id: string): void {
     this.subsidiariesService.deleteSubsidiary(id).subscribe({
       next: () => this.fetchSubsidiaries()
     });
   }
-  
+
   private fetchSubsidiaries(): void {
     this.subsidiaries$ = this.subsidiariesService.getSubsidiaries();
   }

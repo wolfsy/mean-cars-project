@@ -51,13 +51,11 @@
     </div>
 
     <div class="form-floating mb-3">
-        <input class="form-control" type="text" formControlName="emailAddress" placeholder="emailAddress"
-            required>
+        <input class="form-control" type="text" formControlName="emailAddress" placeholder="emailAddress" required>
         <label for="emailAddress">E-mail Address</label>
     </div>
 
-    <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)"
-        class="alert alert-danger">
+    <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)" class="alert alert-danger">
         <div *ngIf="emailAddress.errors?.['required']">
             E-mail Address is required.
         </div>
@@ -66,6 +64,7 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" type="submit" [disabled]="subsidiaryForm.invalid" style="margin-right: 5px;">Approve</button>
+    <button class="btn btn-primary" type="submit" [disabled]="subsidiaryForm.invalid"
+        style="margin-right: 5px;">Approve</button>
     <button class="btn btn-secondary" type="button" (click)="cancelEditForm()">Cancel</button>
 </form>
