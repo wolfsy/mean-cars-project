@@ -22,6 +22,8 @@ import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list
 import { HomePageComponent } from './home-page/home-page.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SubsidiaryFormComponent } from './subsidiary-form/subsidiary-form.component';
+import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DescriptionModalComponent,
     UsersListComponent,
     SubsidiariesListComponent,
-    HomePageComponent
+    HomePageComponent,
+    SubsidiaryFormComponent,
+    EditSubsidiaryComponent
   ],
   imports: [
     BrowserModule,

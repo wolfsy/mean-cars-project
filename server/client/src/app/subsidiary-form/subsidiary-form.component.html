@@ -1,0 +1,71 @@
+<form class="subsidiary-form" autocomplete="off" [formGroup]="subsidiaryForm" (ngSubmit)="submitForm()">
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" id="manager" formControlName="manager" placeholder="manager" required>
+        <label for="manager">Manager</label>
+    </div>
+
+    <div *ngIf="manager.invalid && (manager.dirty || manager.touched)" class="alert alert-danger">
+        <div *ngIf="manager.errors?.['required']">
+            Manager is required.
+        </div>
+        <div *ngIf="manager.errors?.['minlength']">
+            Manager name must contain atleast 3 characters long.
+        </div>
+        <div *ngIf="manager.errors?.['maxlength']">
+            Manager name cannot contain more than 50 characters long.
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" formControlName="address" placeholder="address" required>
+        <label for="address">Address</label>
+    </div>
+
+    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+        <div *ngIf="address.errors?.['required']">
+            Address is required.
+        </div>
+        <div *ngIf="address.errors?.['minlength']">
+            Address name must contain atleast 10 characters long.
+        </div>
+        <div *ngIf="address.errors?.['maxlength']">
+            Address name cannot contain more than 200 characters long.
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" formControlName="phoneNumber" placeholder="phoneNumber" required>
+        <label for="phoneNumber">Phone Number</label>
+    </div>
+
+    <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="alert alert-danger">
+        <div *ngIf="phoneNumber.errors?.['required']">
+            Phone Number is required.
+        </div>
+        <div *ngIf="phoneNumber.errors?.['pattern']">
+            The Phone number must adhere to the pattern '+48 XXX-XXX-XXX'.
+        </div>
+        <div *ngIf="phoneNumber.errors?.['maxlength']">
+            Phone number cannot contain more than 15 characters long.
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" formControlName="emailAddress" placeholder="emailAddress"
+            required>
+        <label for="emailAddress">E-mail Address</label>
+    </div>
+
+    <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)"
+        class="alert alert-danger">
+        <div *ngIf="emailAddress.errors?.['required']">
+            E-mail Address is required.
+        </div>
+        <div *ngIf="emailAddress.errors?.['pattern']">
+            Please enter a valid e-mail address.
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="subsidiaryForm.invalid" style="margin-right: 5px;">Approve</button>
+    <button class="btn btn-secondary" type="button" (click)="cancelEditForm()">Cancel</button>
+</form>
