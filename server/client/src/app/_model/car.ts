@@ -5,7 +5,7 @@ export interface Car {
     vin: string;
     brand: string;
     model: string;
-    year_of_production: Number;
+    year_of_production: number;
     task_type: "Repairing" | "Varnishing" | "Cleaning" | "Other";
     description: string;
     status: "Pending" | "Servicing" | "Finished" | "Postponed";

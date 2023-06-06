@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Users } from '../_model/users';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -22,7 +24,7 @@ export class UsersService {
     }
 
     getSession() {
-        return this.httpClient.get(`${this.url}/session`);
+        return this.httpClient.get<Users>(`${this.url}/session`);
     }
 
     logoutUser() {

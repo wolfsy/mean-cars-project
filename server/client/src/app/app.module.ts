@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarsListComponent } from './cars-list/cars-list.component';
@@ -33,6 +33,8 @@ import { CarService } from './_service/car.service';
 import { SubsidiaryService } from './_service/subsidiary.service';
 import { UsersService } from './_service/users.service';
 import { AuthService } from './_service/auth.service';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthInterceptor } from './_interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { AuthService } from './_service/auth.service';
     EditSubsidiaryComponent,
     RegistrationFormComponent,
     RegisterUserComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,15 @@ import { AuthService } from './_service/auth.service';
     ReactiveFormsModule,
     MatSnackBarModule
   ],
-  providers: [CarService, SubsidiaryService, UsersService, AuthService],
+  providers: [
+    CarService, 
+    SubsidiaryService, 
+    UsersService, 
+    AuthService, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
