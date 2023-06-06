@@ -27,6 +27,7 @@ import { SubsidiaryFormComponent } from './subsidiary-form/subsidiary-form.compo
 import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.component';
 import { RegistrationFormComponent } from './registartion-form/registration-form.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
