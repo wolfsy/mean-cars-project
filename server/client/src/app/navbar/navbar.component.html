@@ -24,6 +24,9 @@
                 <a class="nav-link" href="register" style="font-weight: normal;">Sign Up</a>
             </li>
             <li class="nav-item" *ngIf="isLoggedIn()">
+                <a class="nav-link" href="session">Profile</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn()">
                 <a class="nav-link" href="#" (click)="logout()">Logout</a>
             </li>
         </ul>

@@ -71,6 +71,7 @@ export class AuthService {
                 expiresAt: -1
             }
         );
+        this.showLogoutSuccessAlert();
         this.router.navigate(['/home']);
     }
 
@@ -87,6 +88,6 @@ export class AuthService {
     }
 
     private showLogoutSuccessAlert() {
-        alert('User successfullu logged out!');
+        alert('User successfully logged out!');
     }
 }

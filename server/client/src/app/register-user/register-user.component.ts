@@ -21,7 +21,7 @@ export class RegisterUserComponent {
       .subscribe({
         next: () => {
           this.router.navigate(['/home']);
-          this.showSuccessNotification('User registration successful!');
+          this.showSuccessNotification('User has been registered successfully!');
         },
         error: (error) => {
           if (error.status === 403) {
