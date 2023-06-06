@@ -35,7 +35,7 @@ export class RegisterUserComponent {
   }
 
   showSuccessNotification(message: string): void {
-    this.snackBar.open(message, 'Close', { duration: 3000 });
+    this.snackBar.open(message, 'Close', { duration: 5000 });
   }
 
   handleCancel() {

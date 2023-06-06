@@ -8,9 +8,11 @@ import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list
 import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterUserComponent},
+  { path: 'login', component: LoginFormComponent },
   { path: 'home', component: HomePageComponent },
   { path: 'home/edit/:id', component: EditSubsidiaryComponent},
   { path: 'subsidiaries', component: SubsidiariesListComponent},

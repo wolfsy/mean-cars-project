@@ -28,6 +28,11 @@ import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.compo
 import { RegistrationFormComponent } from './registartion-form/registration-form.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { CarService } from './_service/car.service';
+import { SubsidiaryService } from './_service/subsidiary.service';
+import { UsersService } from './_service/users.service';
+import { AuthService } from './_service/auth.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SubsidiaryFormComponent,
     EditSubsidiaryComponent,
     RegistrationFormComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [CarService, SubsidiaryService, UsersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@
             required>
         <label for="firstName">First Name</label>
 
-        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger" style="margin-top: 15px;">
             <div *ngIf="firstName.errors?.['required']">
                 First name is required.
             </div>

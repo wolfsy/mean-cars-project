@@ -1,0 +1,30 @@
+<h2 class="text-center m-5" style="font-weight: lighter; padding-top: 80px;">Sign in to Automotive Workshop</h2>
+<form class="app-login-form" autocomplete="on" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+    <div class="form-floating mb-3">
+        <input class="form-control" type="text" id="emailAddress" formControlName="emailAddress" placeholder="emailAddress"
+            required>
+        <label for="emailAddress">E-mail Address</label>
+
+        <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)" class="alert alert-danger" style="margin-top: 15px;">
+            <div *ngIf="emailAddress.errors?.['required']">
+                E-mail address is required.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" type="password" id="password" formControlName="password" placeholder="password" required>
+        <label for="password">Password</label>
+    </div>
+
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+        <div *ngIf="password.errors?.['required']">
+            Password is required.
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid" style="margin-right: 5px;">Sign In</button>
+        <button class="btn btn-secondary" type="button" (click)="cancelLoginForm()">Cancel</button>
+    </div>
+</form>
