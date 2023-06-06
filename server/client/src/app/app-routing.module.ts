@@ -7,15 +7,17 @@ import { ContactComponent } from './contact/contact.component';
 import { SubsidiariesListComponent } from './subsidiaries-list/subsidiaries-list.component';
 import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 const routes: Routes = [
+  { path: 'register', component: RegisterUserComponent},
   { path: 'home', component: HomePageComponent },
-  { path: 'subsidiaries', component: SubsidiariesListComponent},
   { path: 'home/edit/:id', component: EditSubsidiaryComponent},
-  { path: 'contact', component: ContactComponent },
+  { path: 'subsidiaries', component: SubsidiariesListComponent},
   { path: 'cars', component: CarsListComponent },
   { path: 'cars/new', component: AddCarComponent },
   { path: 'cars/edit/:id', component: EditCarComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

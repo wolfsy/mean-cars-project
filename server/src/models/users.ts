@@ -7,7 +7,7 @@ export interface Users {
     firstName: string;
     lastName: string;
     emailAddress: string;
-    phoneNumber: number;
+    phoneNumber: string;
     password: string;
     cars?: Car[]
     validatePassword(password: string): Promise<boolean>;
@@ -18,7 +18,7 @@ export class UserModel implements Users {
     firstName: string;
     lastName: string;
     emailAddress: string;
-    phoneNumber: number;
+    phoneNumber: string;
     password: string;
     cars?: Car[]
 

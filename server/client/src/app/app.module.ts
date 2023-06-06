@@ -1,6 +1,8 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +25,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubsidiaryFormComponent } from './subsidiary-form/subsidiary-form.component';
 import { EditSubsidiaryComponent } from './edit-subsidiary/edit-subsidiary.component';
-import { RegistrationComponent } from './registration-form/registration-form.component';
+import { RegistrationFormComponent } from './registartion-form/registration-form.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { RegistrationComponent } from './registration-form/registration-form.com
     HomePageComponent,
     SubsidiaryFormComponent,
     EditSubsidiaryComponent,
-    RegistrationComponent
+    RegistrationFormComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,10 @@ import { RegistrationComponent } from './registration-form/registration-form.com
     MatIconModule,
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
