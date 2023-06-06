@@ -26,27 +26,28 @@ export class AuthService {
 
     login(emailAddress: string, password: string) {
         this.httpClient.post(`${this.url}/login`, { emailAddress: emailAddress, password: password }, { responseType: 'text' })
-        .pipe(
-            catchError((error) => {
-              let errorMessage = 'Could not log in.';
-              if (error.status === 401) {
-                errorMessage = 'Invalid credentials.';
-              } else if (error.status === 500) {
-                errorMessage = 'Server error.';
-              }
-              this.loginErrorsSubject.next(errorMessage);
-              return throwError(errorMessage);
-            })
-          )
-          .subscribe(
-            (token) => {
-              this.setToken(token);
-              this.router.navigate(['/home']);
-            },
-            (error) => {
-              console.log(error);
-            }
-          );
+            .pipe(
+                catchError((error) => {
+                    let errorMessage = 'Could not log in.';
+                    if (error.status === 401) {
+                        errorMessage = 'Invalid credentials.';
+                    } else if (error.status === 500) {
+                        errorMessage = 'Server error.';
+                    }
+                    this.loginErrorsSubject.next(errorMessage);
+                    return throwError(errorMessage);
+                })
+            )
+            .subscribe(
+                (token) => {
+                    this.setToken(token);
+                    this.showLoginSuccessAlert();
+                    this.router.navigate(['/home']);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
     }
 
     private setToken(token: string) {
@@ -79,5 +80,13 @@ export class AuthService {
 
     get loginErrors$(): Observable<string> {
         return this.loginErrorsSubject.asObservable();
+    }
+
+    private showLoginSuccessAlert() {
+        alert('User successfully logged in!');
+    }
+
+    private showLogoutSuccessAlert() {
+        alert('User successfullu logged out!');
     }
 }
